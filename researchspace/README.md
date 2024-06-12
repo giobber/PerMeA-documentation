@@ -43,3 +43,7 @@ $ docker compose logs -f
 $ docker compose logs -f <container>
 ```
 
+## First launch
+Add ontologies as explained in https://github.com/researchspace/researchspace-instance-configurations
+
+> **NOTE (2024/12/06)**: with the latest version I'm not able to load one of the two file suggested (knowledgePatternsContainer.trig)
