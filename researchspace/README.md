@@ -35,6 +35,8 @@ Generate docker containers
 $ docker compose up -d
 ```
 
+Check if it works at http://localhost:10214 (user: admin, password: admin)
+
 To check logs
 ```shell
 $ docker compose logs -f
