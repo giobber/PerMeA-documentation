@@ -16,15 +16,28 @@ $ cd basic/
 
 Edit `.env` file: 
 - Change `COMPOSE_PROJECT_NAME` to a proper prefix for docker containers
-- **IMPORTANT**: Increase `BLAZEGRAPH_MEMORY` (4g value works for me on 2024/06/12)
+- **IMPORTANT (18/06/2024)**: Increase `BLAZEGRAPH_MEMORY` (values <4g seems to not work on first launch )
+- **IMPORTANT (18/06/2024)**: Increase `RESEARCHSPACE_MEMORY` (values <4g seems to cause error 503)
 
+Generate folders
+```shell
+$ sudo chmod +x fix-folder-permissions.sh
+$ sudo ./fix-folder-permissions.sh  # sudo is required as it changes blazegraph to 999:adm
+```
+
+> NOTE: to reset folders to default use
+> ```shell
+> $ sudo rm -rf blazegraph researchspace/data
+> ```
+
+Generate docker containers
 ```shell
 $ docker compose up -d
 ```
 
 To check logs
 ```shell
-$ docker compose logs
-$ docker compose logs <container>
+$ docker compose logs -f
+$ docker compose logs -f <container>
 ```
 
