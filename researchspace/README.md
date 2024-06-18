@@ -18,6 +18,8 @@ Edit `.env` file:
 - Change `COMPOSE_PROJECT_NAME` to a proper prefix for docker containers
 - **IMPORTANT (18/06/2024)**: Increase `BLAZEGRAPH_MEMORY` (values <4g seems to not work on first launch )
 - **IMPORTANT (18/06/2024)**: Increase `RESEARCHSPACE_MEMORY` (values <4g seems to cause error 503)
+- Add `RESEARCHSPACE_JAVA_OPTS=-Xms1450m -Xmx1450m -Dlog4j2.formatMsgNoLookups=true` (solve https://github.com/researchspace/researchspace/issues/339)
+- Add `BLAZEGRAPH_JAVA_OPTS=-Xms1450m -Xmx1450m -Dlog4j2.formatMsgNoLookups=true` (solve https://github.com/researchspace/researchspace/issues/339)
 
 Generate folders
 ```shell
@@ -45,5 +47,3 @@ $ docker compose logs -f <container>
 
 ## First launch
 Add ontologies as explained in https://github.com/researchspace/researchspace-instance-configurations
-
-> **NOTE (2024/12/06)**: with the latest version I'm not able to load one of the two file suggested (knowledgePatternsContainer.trig)
